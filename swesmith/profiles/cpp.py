@@ -1,6 +1,7 @@
 import re
 from dataclasses import dataclass, field
 from swesmith.profiles.base import RepoProfile, registry
+from swesmith.constants import ENV_NAME
 
 
 DEFAULT_CPP_BUG_GEN_DIRS_EXCLUDE = [
@@ -410,7 +411,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN meson setup build -Dtests=enabled -Dman-pages=disabled && \
@@ -441,7 +442,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -488,7 +489,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -542,7 +543,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN sed -i 's/cmake_minimum_required(VERSION 4.1)/cmake_minimum_required(VERSION 3.25)/' CMakeLists.txt
@@ -579,7 +580,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -634,7 +635,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -689,7 +690,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -736,7 +737,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -768,7 +769,7 @@ class Rapidjson24b5e7a8(CppProfile):
 RUN apt-get update && apt-get install -y git cmake build-essential && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -822,7 +823,7 @@ ENV CXX=/usr/bin/clang++-15
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -879,7 +880,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Explicitly build unit_tests target to ensure test binaries are produced
@@ -940,7 +941,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
  && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN cmake -B build -DBUILD_TESTS=ON -DCMAKE_BUILD_TYPE=Release
@@ -992,7 +993,7 @@ RUN cd /usr/src/googletest/googletest && \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -1041,7 +1042,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN autoreconf -i && \
@@ -1097,7 +1098,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
@@ -1137,7 +1138,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -1184,7 +1185,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -1230,7 +1231,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -1272,7 +1273,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN sed -i '1i #include <memory>' src/video_core/shader/shader_jit_a64_compiler.h
@@ -1325,7 +1326,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -1355,7 +1356,7 @@ class ArduinoJsonaa7fbd6c(CppProfile):
 RUN apt-get update && apt-get install -y git cmake && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
@@ -1411,7 +1412,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git fetch --all --tags
 RUN git submodule update --init --recursive
 
@@ -1452,7 +1453,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -1490,7 +1491,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -1538,7 +1539,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Explicitly disable LTO and Benchmarks to avoid system library version mismatches
@@ -1576,7 +1577,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -1614,7 +1615,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
@@ -1657,7 +1658,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN ./helio/blaze.sh -release -DWITH_AWS=OFF -DWITH_GCP=OFF -DWITH_TIERING=OFF -DWITH_SEARCH=OFF
@@ -1708,7 +1709,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -1745,7 +1746,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Build DuckDB unit tests without autoloading to avoid network dependency in tests
@@ -1774,7 +1775,7 @@ RUN apt-get update && apt-get install -y     git     build-essential     cmake  
 RUN git clone --branch v3.4.0 https://github.com/catchorg/Catch2.git /tmp/catch2 &&     cd /tmp/catch2 &&     mkdir build && cd build &&     cmake .. -DBUILD_TESTING=OFF &&     make -j$(nproc) &&     make install &&     rm -rf /tmp/catch2
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git fetch --all --tags
 RUN git submodule update --init --recursive
 
@@ -1816,7 +1817,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # We enable unit tests and use bundled deps to make it more self-contained
@@ -1850,7 +1851,7 @@ class Spdlog472945ba(CppProfile):
 RUN apt-get update && apt-get install -y cmake git && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && cmake -DSPDLOG_BUILD_TESTS=ON .. && make -j$(nproc)
@@ -1880,7 +1881,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git fetch --all --tags
 RUN git submodule update --init --recursive
 
@@ -1913,7 +1914,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -1952,7 +1953,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -1984,7 +1985,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2017,7 +2018,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2049,7 +2050,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && cmake -Dgtest_build_tests=ON .. && make -j$(nproc)
@@ -2081,7 +2082,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Use -k 0 to continue building even if some targets fail, 
@@ -2115,7 +2116,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2150,7 +2151,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2182,7 +2183,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2224,7 +2225,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
@@ -2272,7 +2273,7 @@ RUN curl -L https://github.com/bazelbuild/bazelisk/releases/download/v1.17.0/baz
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Build core libraries. We use --enable_bzlmod=false as gRPC doesn't fully support it yet.
@@ -2322,7 +2323,7 @@ RUN wget https://apt.llvm.org/llvm.sh && \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Use Ninja and limit tests to core functionality
@@ -2377,7 +2378,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && cmake -DINPUTLEAP_BUILD_TESTS=ON -DINPUTLEAP_BUILD_GUI=OFF .. && make -j$(nproc)
@@ -2411,7 +2412,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2468,7 +2469,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git fetch --all --tags
 RUN git submodule update --init --recursive
 
@@ -2512,7 +2513,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2568,7 +2569,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2602,7 +2603,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Add enable_testing() to the root CMakeLists.txt to allow ctest to find submodule tests
@@ -2631,7 +2632,7 @@ class Tinyxml23324d04d(CppProfile):
 RUN apt-get update && apt-get install -y cmake git && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2659,7 +2660,7 @@ class Cpr22a41e60(CppProfile):
 RUN apt-get update && apt-get install -y     cmake     git     libcurl4-openssl-dev     libssl-dev     zlib1g-dev     meson     ninja-build     pkg-config     python3-pip     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build &&     cmake -DCPR_BUILD_TESTS=ON -DCPR_BUILD_TESTS_SSL=ON -DCPR_BUILD_TESTS_PROXY=OFF -DCPR_CURL_USE_LIBPSL=OFF .. &&     make -j$(nproc)
@@ -2710,7 +2711,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2741,7 +2742,7 @@ class Luau54a2ea00(CppProfile):
 RUN apt-get update && apt-get install -y     build-essential     cmake     git     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build &&     cmake -DCMAKE_BUILD_TYPE=Release -DLUAU_BUILD_TESTS=ON .. &&     make -j$(nproc 2>/dev/null || echo 2) Luau.UnitTest Luau.CLI.Test
@@ -2781,7 +2782,7 @@ RUN apt-get update && apt-get install -y \
     libc++abi-8-dev \
     && rm -rf /var/lib/apt/lists/*
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Apply the fix for CelestialTests to avoid precision-based failure on ARM64
@@ -2833,7 +2834,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2947,7 +2948,7 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 100 --slave /
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -2985,7 +2986,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && cmake -DBUILD_TESTING=ON .. && make -j$(nproc)
@@ -3011,7 +3012,7 @@ class Oatppf83d648f(CppProfile):
 RUN apt-get update && apt-get install -y     build-essential     cmake     git     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && cmake -DOATPP_BUILD_TESTS=ON .. && make -j$(nproc)
@@ -3036,7 +3037,7 @@ class Jsoncppe799ca05(CppProfile):
 RUN apt-get update && apt-get install -y cmake python3 git && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -3083,7 +3084,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -3143,7 +3144,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -3193,7 +3194,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
 
-WORKDIR /testbed/trunk
+WORKDIR /{ENV_NAME}/trunk
 RUN git submodule update --init --recursive
 RUN ./configure --utest && make utest
 
@@ -3248,7 +3249,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -3291,7 +3292,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -3361,7 +3362,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN ./configure.py --mode=release --compiler=g++ && \
@@ -3389,7 +3390,7 @@ RUN apt-get update && apt-get install -y     cmake     git     build-essential  
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build_dir && cd build_dir &&     cmake -DENTT_BUILD_TESTING=ON .. &&     make -j$(nproc)
@@ -3434,7 +3435,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git fetch --all --tags
 RUN git submodule update --init --recursive
 
@@ -3479,7 +3480,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -3549,7 +3550,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -3587,7 +3588,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -3623,7 +3624,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \
@@ -3661,7 +3662,7 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Bypass broken Boost discovery by manually providing paths and libraries
@@ -3704,7 +3705,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/{self.mirror_name} /{ENV_NAME}
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN mkdir build && cd build && \

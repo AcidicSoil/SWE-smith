@@ -149,8 +149,8 @@ class NextChatc3b8c158(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN yarn install
 CMD ["/bin/bash"]"""
@@ -175,8 +175,8 @@ class Cherrystudiob767d6e2(TypeScriptProfile):
 RUN apk add --no-cache git python3 make g++ gcc musl-dev
 
 # Clone ONLY the main repo to save space (avoiding --recurse-submodules)
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 
 # Install pnpm and dependencies, skipping scripts and cleaning cache
 RUN npm install -g pnpm@10.27.0 &&     pnpm install --ignore-scripts &&     pnpm store prune
@@ -211,8 +211,8 @@ ENV PATH="/root/.local/bin:${{PATH}}"
 
 RUN npm install -g pnpm@10.13.1
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -236,8 +236,8 @@ class RSSHubee161b72(TypeScriptProfile):
 
 RUN corepack enable && corepack prepare pnpm@10.28.2 --activate
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN pnpm install
 
@@ -267,8 +267,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install -g pnpm@9.12.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install --frozen-lockfile
@@ -294,8 +294,8 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g pnpm@10.17.1
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Remove the problematic @effect/docgen dependency that's causing 404
@@ -322,8 +322,8 @@ class Fuelstsb3f37c91(TypeScriptProfile):
 
 RUN npm install -g pnpm@9.4.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install && pnpm build:packages
@@ -349,8 +349,8 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g pnpm@10.10.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -374,8 +374,8 @@ class Gitbook81f8ddcf(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN bun install
@@ -399,8 +399,8 @@ class Reactselect052e864b(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install
@@ -424,8 +424,8 @@ class Metamaskextension5b029fa6(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && yarn set version 4.12.0
@@ -451,8 +451,8 @@ class NativeScript3d6a4392(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install --legacy-peer-deps
@@ -476,8 +476,8 @@ class OpenCute84c0cfd(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN bun install
@@ -501,8 +501,8 @@ CMD ["/bin/bash"]"""
 
 # RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 
-# RUN git clone https://github.com/{self.mirror_name}.git /testbed
-# WORKDIR /testbed
+# RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+# WORKDIR /{ENV_NAME}
 # RUN git submodule update --init --recursive
 
 # RUN npm install
@@ -527,8 +527,8 @@ class Folo62efdd29(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@10.17.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -552,8 +552,8 @@ class Rxjsc15b37f8(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install --frozen-lockfile
@@ -577,8 +577,8 @@ class Redocd41fd46f(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -603,8 +603,8 @@ class Queryd6884583(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@10.24.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -635,8 +635,8 @@ RUN apt-get update && apt-get install -y \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && yarn install
@@ -664,8 +664,8 @@ class Million13406265(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN corepack enable && corepack prepare pnpm@9.1.4 --activate
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -687,8 +687,8 @@ class SponsorBlockdfddffbc(TypeScriptProfile):
     def dockerfile(self):
         return f"""FROM node:18-slim
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN npm install
 RUN cp config.json.example config.json && npm run build:chrome
@@ -711,11 +711,11 @@ class Bulletproofreact63f68340(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
-WORKDIR /testbed/apps/react-vite
+WORKDIR /{ENV_NAME}/apps/react-vite
 
 RUN corepack enable && yarn install --frozen-lockfile
 
@@ -740,8 +740,8 @@ class Antdesignpro607e63f4(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -765,8 +765,8 @@ class Antdesignef322504(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install --legacy-peer-deps
@@ -790,8 +790,8 @@ class G2e58f72b1(TypeScriptProfile):
 
 RUN apk add --no-cache git python3 make g++ build-base
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install --no-audit --no-fund && npm cache clean --force
@@ -825,8 +825,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install -g pnpm
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -856,8 +856,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN corepack enable
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install --frozen-lockfile --non-interactive
@@ -888,8 +888,8 @@ RUN apt-get update && apt-get install -y \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && corepack prepare yarn@4.8.1 --activate
@@ -924,8 +924,8 @@ RUN apt-get update && apt-get install -y \
     bzip2 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -951,8 +951,8 @@ RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib
 
 RUN npm install -g pnpm@10.28.2
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -981,8 +981,8 @@ RUN apt-get update && apt-get install -y \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install --network-timeout 1000000
@@ -1007,8 +1007,8 @@ class Reactwindow2b982512(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN pnpm install
 
@@ -1033,8 +1033,8 @@ RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib
 
 RUN npm install -g pnpm@9.10.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -1058,8 +1058,8 @@ class Calcom3c1d9068(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # We need a DATABASE_URL for prisma generate to work during postinstall
@@ -1086,8 +1086,8 @@ class Gitmoji72dd6f38(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@8.6.2
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN pnpm install --no-frozen-lockfile
 CMD ["/bin/bash"]"""
@@ -1110,8 +1110,8 @@ class Chakraui527a04c7(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN pnpm install --frozen-lockfile
 
@@ -1134,8 +1134,8 @@ class Clineb5b503dd(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y     git     python3     make     g++     pkg-config     libsqlite3-dev     bash     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm run install:all
@@ -1161,8 +1161,8 @@ class Ohmyopencode976ffaeb(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN bun install
@@ -1196,8 +1196,8 @@ RUN apt-get update && apt-get install -y \
     quilt \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -1234,8 +1234,8 @@ RUN apt-get update && apt-get install -y \
     xvfb \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install
@@ -1260,8 +1260,8 @@ CMD ["/bin/bash"]"""
 # RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 # RUN npm install -g pnpm@10.12.1
 
-# RUN git clone https://github.com/{self.mirror_name}.git /testbed
-# WORKDIR /testbed
+# RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+# WORKDIR /{ENV_NAME}
 # RUN git submodule update --init --recursive
 # RUN pnpm install
 
@@ -1284,8 +1284,8 @@ class Continue437ac08a(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -1311,8 +1311,8 @@ class Commitlint5635cf0a(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install && yarn build
@@ -1337,7 +1337,7 @@ class Datefnsdd663983(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm
 
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 RUN git config --global url."https://github.com/".insteadOf "git@github.com:" && \
     git clone https://github.com/{self.mirror_name}.git . && \
     git submodule update --init --recursive
@@ -1363,8 +1363,8 @@ class Directusac922d18(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@10
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -1389,8 +1389,8 @@ class Univercc701579(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@10.28.2
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install --frozen-lockfile
@@ -1415,8 +1415,8 @@ class Drizzleorma086f59f(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@10.6.3
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -1461,8 +1461,8 @@ class Excalidrawf39ac4a6(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install --network-timeout 600000
@@ -1486,8 +1486,8 @@ class Fabricjs6742471c(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y     git     build-essential     libcairo2-dev     libpango1.0-dev     libjpeg-dev     libgif-dev     librsvg2-dev     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -1526,15 +1526,15 @@ CMD ["/bin/bash"]"""
 # RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path \
 #     && chmod -R a+w $RUSTUP_HOME $CARGO_HOME
 
-# WORKDIR /testbed
+# WORKDIR /{ENV_NAME}
 
 # RUN corepack enable
 
-# RUN git clone https://github.com/{self.mirror_name}.git /testbed
-# WORKDIR /testbed
+# RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+# WORKDIR /{ENV_NAME}
 # RUN git submodule update --init --recursive
 
-# WORKDIR /testbed/apps/api
+# WORKDIR /{ENV_NAME}/apps/api
 
 # RUN cd sharedLibs/go-html-to-md && \
 #     go build -o libhtml-to-markdown.so -buildmode=c-shared html-to-markdown.go
@@ -1568,8 +1568,8 @@ RUN apt-get update && apt-get install -y \
     xvfb \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install && yarn build
@@ -1595,8 +1595,8 @@ RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib
 
 RUN npm install -g pnpm@9.15.9
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -1622,8 +1622,8 @@ class Pangoline4d4c628(TypeScriptProfile):
 
 RUN apk add --no-cache git curl tzdata python3 make g++
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm ci
@@ -1659,8 +1659,8 @@ RUN apt-get update && apt-get install -y \
     libsecret-1-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm ci --include=dev
@@ -1686,8 +1686,8 @@ class Crystal65b3b40b(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && corepack prepare yarn@4.12.0 --activate
@@ -1714,8 +1714,8 @@ class Hexo1fd997c3(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install && npm run build
@@ -1739,8 +1739,8 @@ class Homebridge3a341e08(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install && npm run build
@@ -1764,8 +1764,8 @@ class Honof7d272ab(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN bun install
@@ -1796,8 +1796,8 @@ RUN apt-get update && apt-get install -y \
 ENV CHROME_BIN=/usr/bin/chromium
 ENV FIREFOX_BIN=/usr/bin/firefox
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install --frozen-lockfile
@@ -1821,14 +1821,14 @@ class TwelveFactorAgentsd20c7283(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 make build-essential && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
-WORKDIR /testbed/packages/walkthroughgen
+WORKDIR /{ENV_NAME}/packages/walkthroughgen
 RUN npm install
 
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 CMD ["/bin/bash"]"""
 
     def log_parser(self, log: str) -> dict[str, str]:
@@ -1850,8 +1850,8 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
 RUN corepack enable && corepack prepare pnpm@10.4.1 --activate
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Remove the problematic packageManager field before install
@@ -1878,8 +1878,8 @@ class Reactnativefirebase7df61307(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable
@@ -1905,8 +1905,8 @@ class Ioniconsa9d1b7e2(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN npm install
 CMD ["/bin/bash"]"""
@@ -1928,8 +1928,8 @@ class NextjsBoilerplate503d2665(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -1953,8 +1953,8 @@ class Sigmajs13062dc5(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 build-essential libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libasound2 libpango-1.0-0 libcairo2 && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -1979,12 +1979,12 @@ class Janaffbde58(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 
 RUN corepack enable
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install
@@ -2008,8 +2008,8 @@ class Formik91475adb(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install --frozen-lockfile
@@ -2035,8 +2035,8 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
 RUN corepack enable
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install && yarn build
@@ -2062,8 +2062,8 @@ RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib
 
 RUN npm install -g pnpm@9.15.9
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -2089,8 +2089,8 @@ RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib
 
 RUN npm install -g pnpm@10.14.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -2114,8 +2114,8 @@ class Lerna215ff002(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN npm ci --include=dev
 CMD ["/bin/bash"]"""
@@ -2139,8 +2139,8 @@ RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib
 
 RUN corepack enable && corepack prepare pnpm@10.20.0 --activate
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install --no-frozen-lockfile
@@ -2174,8 +2174,8 @@ RUN apt-get update && apt-get install -y \
     libx11-xcb1 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -2201,8 +2201,8 @@ class Markmap205367a2(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN pnpm install && pnpm build:types && pnpm build:js
 
@@ -2225,8 +2225,8 @@ class Reactadmin823caa0b(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && corepack prepare yarn@4.0.2 --activate
@@ -2252,8 +2252,8 @@ class Aipdfchatbotlangchain4bb98092(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git jq && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Fix for Turborepo and root test script
@@ -2286,8 +2286,8 @@ RUN apt-get update && apt-get install -y \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && yarn install
@@ -2313,8 +2313,8 @@ class TypeScript0a74ec4e(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -2359,8 +2359,8 @@ RUN apt-get update && apt-get install -y \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -2401,8 +2401,8 @@ RUN apt-get update && apt-get install -y \
     libasound2 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && yarn install
@@ -2428,8 +2428,8 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g pnpm@9.14.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -2460,8 +2460,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install -g pnpm@10.22.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install --frozen-lockfile
@@ -2487,8 +2487,8 @@ class Nanobrowser322384f8(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@9.15.1
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN pnpm install --frozen-lockfile
 
@@ -2511,8 +2511,8 @@ class Nest346c9543(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -2549,8 +2549,8 @@ ENV PATH="/root/.cargo/bin:${{PATH}}"
 
 RUN npm install -g pnpm
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install --no-frozen-lockfile --ignore-scripts --filter nx...
@@ -2575,8 +2575,8 @@ class Nuxt06533105(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@10.28.2
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -2604,8 +2604,8 @@ CMD ["/bin/bash"]"""
 
 # RUN npm install -g pnpm
 
-# RUN git clone https://github.com/{self.mirror_name}.git /testbed
-# WORKDIR /testbed
+# RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+# WORKDIR /{ENV_NAME}
 # RUN git submodule update --init --recursive
 
 # RUN pnpm install --frozen-lockfile
@@ -2628,8 +2628,8 @@ class Newsnow951241bf(TypeScriptProfile):
         return f"""FROM node:20-slim
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@10.14.0
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN pnpm install --no-frozen-lockfile
 CMD ["pnpm", "dev"]"""
@@ -2653,8 +2653,8 @@ RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib
 
 RUN npm install -g pnpm@10.27.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -2678,8 +2678,8 @@ class Drawnixa046d152(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -2703,8 +2703,8 @@ class Reactspring2ff6de7a(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && yarn install
@@ -2728,8 +2728,8 @@ class Reactthreefiber9525ea0d(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install --frozen-lockfile
@@ -2754,8 +2754,8 @@ class Zustand99379a6e(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@10
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN pnpm install
 
@@ -2786,8 +2786,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install -g pnpm@11.0.0-alpha.3
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install && pnpm run compile-only
@@ -2813,8 +2813,8 @@ RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib
 
 RUN npm install -g pnpm@10.15.1
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -2841,8 +2841,8 @@ class Tsx3a3a0071(TypeScriptProfile):
 RUN apk add --no-cache git python3 make g++ build-base
 RUN npm install -g pnpm@10.9.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -2907,8 +2907,8 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -2935,8 +2935,8 @@ RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib
 
 RUN npm install -g pnpm@10.2.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -2961,8 +2961,8 @@ class Reacthookform3adba2b8(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN pnpm install
 
@@ -3001,8 +3001,8 @@ ENV PATH="/root/.cargo/bin:${{PATH}}"
 
 RUN npm install -g pnpm@10.28.1
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install --no-frozen-lockfile
@@ -3030,8 +3030,8 @@ class Recharts5108cfdf(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -3055,8 +3055,8 @@ class Noderedised55918a(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -3080,8 +3080,8 @@ class Reduxthunk184205d4(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && yarn install
@@ -3105,8 +3105,8 @@ class Redux849c8ce5(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && corepack prepare yarn@4.4.1 --activate
@@ -3132,8 +3132,8 @@ class Refinedgithubd4a7c3fb(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm ci
@@ -3159,8 +3159,8 @@ CMD ["/bin/bash"]"""
 
 # RUN npm install -g pnpm@9.4.0
 
-# RUN git clone https://github.com/{self.mirror_name}.git /testbed
-# WORKDIR /testbed
+# RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+# WORKDIR /{ENV_NAME}
 # RUN git submodule update --init --recursive
 
 # RUN pnpm install
@@ -3184,12 +3184,12 @@ class Reactrouter445eacd5(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 
 RUN npm install -g pnpm@9.10.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -3213,8 +3213,8 @@ class Rete2aae1995(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN npm ci
 CMD ["/bin/bash"]"""
@@ -3238,8 +3238,8 @@ RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /
 
 RUN npm install -g pnpm@9.0.6
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -3266,8 +3266,8 @@ CMD ["/bin/bash"]"""
 # RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 # ENV PATH="/root/.cargo/bin:${{PATH}}"
 
-# RUN git clone https://github.com/{self.mirror_name}.git /testbed
-# WORKDIR /testbed
+# RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+# WORKDIR /{ENV_NAME}
 # RUN git submodule update --init --recursive
 
 # # Install dependencies without running scripts first to allow patching
@@ -3319,8 +3319,8 @@ RUN apt-get update && apt-get install -y \
     libcairo2 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -3344,8 +3344,8 @@ class Typefest051325ac(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -3370,8 +3370,8 @@ class Solida0524c06(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@9.15.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -3395,8 +3395,8 @@ class FossFLOWdaa0dd3b(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -3421,8 +3421,8 @@ class Xstate1710ace0(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -3446,12 +3446,12 @@ class Strapie5b87a54(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 
 RUN corepack enable
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install --immutable
@@ -3477,8 +3477,8 @@ class Reactuse9ef95352(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install --frozen-lockfile
@@ -3502,8 +3502,8 @@ class Styledcomponents2bd64021(TypeScriptProfile):
 
 RUN npm install -g pnpm@10.0.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -3526,8 +3526,8 @@ class Signaturepad43989b6d(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && yarn install
@@ -3564,8 +3564,8 @@ ENV PYTHON="/usr/bin/python3"
 
 RUN npm install -g pnpm@9.6.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -3595,8 +3595,8 @@ RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /
 RUN npx @teambit/bvm install
 ENV PATH="/root/bin:$PATH"
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Install dependencies using bit and ensure devDependencies (like registry-mock) are available
@@ -3631,8 +3631,8 @@ class Claudemem1341e93f(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN bun install
@@ -3658,8 +3658,8 @@ RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib
 
 RUN npm install -g pnpm@9.15.5
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -3683,8 +3683,8 @@ class Tldraw9b55464f(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN corepack enable && yarn set version 4.12.0
@@ -3708,12 +3708,12 @@ class Uppy89fbbc72(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 
 RUN corepack enable
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN yarn install
@@ -3739,12 +3739,12 @@ class Tremornpm7613bff6(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /testbed
+WORKDIR /{ENV_NAME}
 
 RUN npm install -g pnpm
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -3770,8 +3770,8 @@ RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g pnpm@9.12.2
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -3796,8 +3796,8 @@ class Typescripteslint8a95834b(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 # Use --ignore-scripts to skip the problematic postinstall during build
@@ -3823,8 +3823,8 @@ class Classvalidator977d2c70(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm ci
@@ -3848,8 +3848,8 @@ class Tiptap2d6de06c(TypeScriptProfile):
 
 RUN npm install -g pnpm@9.15.4
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
@@ -3873,8 +3873,8 @@ class Umami860e6390(TypeScriptProfile):
 
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install --legacy-peer-deps
@@ -3899,8 +3899,8 @@ class Qiankun693cdde7(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@9.15.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 RUN pnpm install
 
@@ -3921,8 +3921,8 @@ class Inke8b08e75(TypeScriptProfile):
     def dockerfile(self):
         return f"""FROM node:20
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -3954,8 +3954,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN npm install -g pnpm@8.7.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install --frozen-lockfile
@@ -3984,8 +3984,8 @@ class Verdacciocda2467f(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git python3 make g++ && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@10.5.2
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install --no-frozen-lockfile
@@ -4011,8 +4011,8 @@ RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /
 
 RUN npm install -g pnpm@10.28.2
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install --frozen-lockfile
@@ -4047,8 +4047,8 @@ RUN apt-get update && apt-get install -y \
     g++ \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN npm install
@@ -4078,8 +4078,8 @@ class Xyflow39ff6e94(TypeScriptProfile):
 RUN apt-get update && apt-get install -y git python3 build-essential && rm -rf /var/lib/apt/lists/*
 RUN npm install -g pnpm@9.2.0
 
-RUN git clone https://github.com/{self.mirror_name}.git /testbed
-WORKDIR /testbed
+RUN git clone https://github.com/{self.mirror_name}.git /{ENV_NAME}
+WORKDIR /{ENV_NAME}
 RUN git submodule update --init --recursive
 
 RUN pnpm install
